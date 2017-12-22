@@ -1,0 +1,8 @@
+Title: Universal Package Formats
+Description: >
+  Sumner's and Robby's presentation on universal package formats.
+Date: 2017-11-09
+Thumbnail: graphics/filesystems.png
+Files:
+    SlidesPDF: universal-packages.pdf
+    LaTeX: universal-packages.tex
