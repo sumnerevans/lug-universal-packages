@@ -150,7 +150,56 @@
     Running an AppImage
 \end{frame}
 
-\section{snapd}
+\section{Snaps \& \texttt{snapd}}
+\begin{frame}{Why are Snaps cool?}
+    \begin{itemize}
+        \item \textbf{Snaps are \texttt{squashFS} filesystems.} They contain
+            your app code and a \texttt{snap.yaml} file with metadata.
+        \item \textbf{Snaps are self-contained.} The necessary libraries and
+            runtimes are bundled in the snap. This allows you to have different
+            library versions in your application than exist on your base system.
+        \item \textbf{Snaps can have different levels confinement.}
+            \begin{itemize}
+                \small
+                \item \texttt{strict} is the default policy. The snap has read
+                    and/or write rights only in its own install space and
+                    selected areas.
+                \item \texttt{devmode} is for development of Snaps.
+                \item \texttt{classic} confinement behaves as a traditionally
+                    packaged application, with full access to the system.
+            \end{itemize}
+        \item \textbf{Snaps can communicate with one another via
+            \textit{interfaces}.}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{How do Snaps work?}
+    \center
+    \includegraphics[width=0.9\textwidth]{./graphics/snap_arch}
+\end{frame}
+
+\begin{frame}{How to create a Snap}
+    \begin{itemize}
+        \item Make your application.
+        \item Make a \texttt{snapcraft.yaml} with a bunch of stuff.
+            \begin{itemize}
+                \item name
+                \item version
+                \item summary
+                \item description
+                \item grade
+                \item confinement
+                \item \dots
+            \end{itemize}
+        \item Run \texttt{snapcraft}.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[standout]
+    \Huge
+    Live Demo:\\
+    Running an AppImage
+\end{frame}
 
 \section{flatpak}
 
@@ -190,12 +239,16 @@
     \textbf{Pros}
     \begin{itemize}
         \item More application availability.
+        \item More abstraction! No more dealing with a bunch of different
+            packaging formats.
     \end{itemize}
 
     \textbf{Cons}
     \begin{itemize}
         \item The applications are going to be crap. Bloated, Electron,
             enterprise crap.
+        \item More abstraction! Not much improvement on ease of deployment in
+            comparison to deploying to \texttt{.deb}.
     \end{itemize}
 \end{frame}
 
