@@ -87,16 +87,36 @@
     \end{enumerate}
 \end{frame}
 
-\section{AppImage}
-\begin{frame}{Objectives}
+\section{Universal Package Formats}
+\begin{frame}{Common objectives}
     \begin{itemize}
-        \item binary compatibility
-        \item distro agnosticism
-        \item no installation
-        \item no root permission
-        \item portability
-        \item keeping the underlying operating system untouched.
+        \item Linux distro agnosticism
+        \item Solve the ``dependency hell''
+        \item Create a ``single'' deployment target for all of Linux
     \end{itemize}
+\end{frame}
+
+\section{AppImage}
+\begin{frame}{Why is AppImage cool?}
+    \begin{itemize}
+        \item \textbf{AppImage does not require installation.} The AppImage file
+            is just its compressed image that is mounted with FUSE when it runs.
+        \item \textbf{AppImage does not require root permission.} The
+            application is run as the user and the base system is left
+            untouched.
+        \item \textbf{The AppImage itself is executable.} Just \texttt{chmod +x}
+            the \texttt{.AppImage} file and run.
+        \item \textbf{Linus says so}
+            \begin{quote}
+                ``This is just very cool.''\\
+                \hspace*{0.5in}\textasciitilde\ Linus Torvalds
+            \end{quote}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[standout]
+    \Huge
+    Live Demo: Running an AppImage
 \end{frame}
 
 \section{snapd}
