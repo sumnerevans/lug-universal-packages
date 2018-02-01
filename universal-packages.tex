@@ -1,6 +1,5 @@
 \documentclass{lug}
 
-\usepackage{fontawesome}
 \usepackage{etoolbox}
 \usepackage{etoolbox}
 \usepackage{textcomp}
@@ -202,6 +201,84 @@
 \end{frame}
 
 \section{flatpak}
+\begin{frame}{flatpak}
+    \begin{itemize}
+        \item Flatpak is a system for building, distributing and running sandboxed desktop applications on Linux. (https://github.com/flatpak/flatpak)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Why is flatpak cool?}
+    \begin{itemize}
+        \item Flatpak includes a system of runtimes that allow developers to build their application against a stable base.
+        \item Runtimes allow dedeuplication of dependencies between packages
+        \item Flatpak makes uses of bubblewrap for sandboxing
+        \item Flatpak supports a system of Appstream metadata to allow packages to show up nicely in various package managers
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{flatpak Overview}
+    \center
+    \includegraphics[width=0.9\textwidth]{./graphics/flatpak_overview.png}
+\end{frame}
+
+\begin{frame}{Runtimes}
+    \begin{itemize}
+        \item org.freedesktop.Platform
+            \begin{itemize}
+                \item D-Bus
+                \item GLib
+                \item PulseAudio
+                \item X11
+                \item Wayland
+            \end{itemize}
+        \item org.gnome.Platform (based on freedesktop)
+            \begin{itemize}
+                \item GStreamer
+                \item PyGObject
+                \item Vala
+                \item GVFS
+                \item other stuff to make Gnome work...
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Runtimes}
+    \begin{itemize}
+        \item org.kde.Platform
+            \begin{itemize}
+                \item Qt Frameworks
+                \item KDE Frameworks
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Snadboxing}
+    \begin{itemize}
+        \item All processes run as the user with no capabilities
+        \item All processes run in a transient systemd user scope with the name \texttt{flatpak-\$appid-\$pid}
+        \item \texttt{/} is a private tmpfs not visible anywhere else. This is \texttt{pivot\_root:ed} into so it is the new  and all other mounts from the host are unmounted from the namespace.
+    \end{itemize}
+\end{frame}
+
+
+\section{How to build a flatpak package}
+
+\begin{frame}{flatpak-builder}
+    \begin{itemize}
+        \item Install the flatpak-builder package
+        \item See https://flatpak.org/getting.html for instructions
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Runtimes}
+    \begin{itemize}
+        \item Add the respository hosting your runtime 
+        \item\texttt{\$\ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo}
+        \item Install the runtime and corresponding SDK
+        \item\texttt{\$\ flatpak install flathub org.freedesktop.Platform//1.6 org.freedesktop.Sdk//1.6}
+    \end{itemize}
+\end{frame}
+
 
 \section{nix}
 
