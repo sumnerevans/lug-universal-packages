@@ -1,10 +1,10 @@
 # Outline
-- History (is there any history?)
+- History (is there any history?) (Sumner)
+  - Why are they necessary?
   - previous attempts? (basically every distro's package format)
-- Why are they necessary?
-- snapd
-- flatpak
-- appimage
-- nix
-- Others?
-- Live demo of packaging some app
+- appimage (Sumner)
+- snapd (Sumner)
+- flatpak (Robby)
+- nix (Robby)
+- Pros and Cons (Both)
+- Live demo of packaging some app (Sumner, if time)
