@@ -114,6 +114,36 @@
     \end{itemize}
 \end{frame}
 
+\begin{frame}{How does AppImage work?}
+    Application developers use the \texttt{appimagetool} converts an AppDir into
+    a self-mounting filesystem image.
+
+    AppImages can be integrated with the system via menu entries, icons, MIME
+    types, etc. The \texttt{appimaged} daemon handles this registering and
+    unregistering process.
+\end{frame}
+
+\begin{frame}{How to create an AppImage}
+    Create an AppDir with the following files (totally copied from their
+    documentation):
+    \begin{itemize}
+        \item The files of the original application.
+        \item A \texttt{.desktop} file that tells \texttt{appimagetool}
+            about the name of the application, and the icon it should
+            use.
+        \item A PNG, SVG or an XPM icon with the name given in the
+            \texttt{.desktop} file with the Icon entry.
+        \item An AppRun file, which is used to start up the application
+            inside the filesystem. Once the AppImage ELF has mounted the
+            filesystem, it invokes this file. In the AppRun file, you
+            can run some initialization procedures (such as setting
+            environment variables), and then start up the real
+            application.
+        \item Optionally, you should also add AppStream metadata in
+            \texttt{usr/share/metainfo}.
+    \end{itemize}
+\end{frame}
+
 \begin{frame}[standout]
     \Huge
     Live Demo:\\
