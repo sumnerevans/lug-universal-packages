@@ -6,6 +6,11 @@
 \usepackage{textcomp}
 \usepackage[nodisplayskipstretch]{setspace}
 \usepackage{xspace}
+\usepackage{enumitem}
+
+\setitemize{label=\usebeamerfont*{itemize item}%
+  \usebeamercolor[fg]{itemize item}
+  \usebeamertemplate{itemize item}}
 
 \AtBeginEnvironment{minted}{\singlespacing\fontsize{10}{10}\selectfont}
 
@@ -14,7 +19,7 @@
 \makeatother
 
 \newcommand{\pmidg}[1]{\parbox{\widthof{#1}}{#1}}
-\newcommand{\splitslide}[4]{
+\newcommand{\splitslide}[4]{%
     \noindent
     \begin{minipage}{#1 \textwidth - #2 }
         #3
@@ -62,22 +67,55 @@
     \end{itemize}
 \end{frame}
 
-\section{Appimage}
+\begin{frame}{A bit of history}
+    \begin{enumerate}[leftmargin=2cm]
+        \item[1994] \texttt{dpkg} --- the package format behind \texttt{apt} and
+            \texttt{apt-get}.  Used by Debian-based systems.
+        \item[1997] \texttt{RPM} --- the package format behind \texttt{yum} and
+            \texttt{dnf}. Used by RHEL-like systems.
+        \item[2002] \texttt{pacman} --- the package manager for Arch Linux. It
+            just uses \texttt{tar} files.
+        \item[2004] \texttt{klik}/\texttt{PortableLinuxApps}
+            (2011)/\texttt{AppImage} (2013) --- a package format built to be
+            Linux-distro agnostic.
+        \item[2006] \texttt{nix} --- a purely functional package format.
+            Primarily used by NixOS.
+        \item[June 2016] \texttt{snapd} --- the Canonical-backed universal
+            package format is ported to a wide range of Linux distros.
+        \item[June 2016] \texttt{Flatpak} --- the Red Hat-backed universal
+            package format becomes generally available.
+    \end{enumerate}
+\end{frame}
+
+\section{AppImage}
+\begin{frame}{Objectives}
+    \begin{itemize}
+        \item binary compatibility
+        \item distro agnosticism
+        \item no installation
+        \item no root permission
+        \item portability
+        \item keeping the underlying operating system untouched.
+    \end{itemize}
+\end{frame}
+
 \section{snapd}
+
 \section{flatpak}
+
 \section{nix}
+
 
 \section{Love to Hate Them}
 
 \begin{frame}{Proprietary enterprise applications are coming to Linux}
     Currently, when enterprises want to make a cross-platform application, they
     see this:
-    \begin{enumerate}[leftmargini=*]
+    \begin{enumerate}[leftmargin=2cm]
         \item[macOS] \texttt{.dmg}
         \item[Windows] \texttt{.exe}
-        \item[Android] \texttt{.apk}
         \item[Linux] \texttt{.deb} and \texttt{.rpm} and \texttt{PKGBUILD} and
-            \dots
+            \dots then deal with the dependency hell
     \end{enumerate}
 
     However, when companies like Canonical come in and say ``just target
@@ -94,7 +132,7 @@
 
     \textbf{Cons}
     \begin{itemize}
-        \item The applications are going to be sh*t. Electron, enterprise sh*t.
+        \item The applications are going to be crap. Electron, enterprise crap.
     \end{itemize}
 \end{frame}
 
