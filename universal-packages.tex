@@ -24,6 +24,7 @@
         #4
     \end{minipage}
 }
+\setbeamerfont{footnote}{size=\tiny}
 
 \title{Universal Packages}
 \author{Sumner Evans and Robby Zampino}
@@ -33,10 +34,59 @@
 
 \section{Introduction}
 
-\begin{frame}{Prior Work}
+\begin{frame}{What are packages?}
+    \begin{center}
+        A \textbf{package} is an archive containing a collection of executable
+        files or source code, along with metadata, which represent a computer
+        program.
+    \end{center}
+\end{frame}
+
+\begin{frame}{What is a package format?}
+    \begin{center}
+        A \textbf{package format} is an organizational structure for delivering
+        packages to users.
+    \end{center}
+\end{frame}
+
+\begin{frame}{Why do we need package formats?}
     \begin{itemize}
-        \item 
+        \item They provide a common way to bundle executables, libraries,
+            assets, etc.\ for deployment on user machines.
+        \item They provide metadata about programs for use in package managers.
+        \item It would suck if we had to go find the source code for every
+            single program we want to use and compile from
+            source.\footnote[frame]{Actually, some package formats do require
+            compilation from source (for example some AUR packages) but at least
+            it helps automate this process.}
     \end{itemize}
+\end{frame}
+
+\section{Appimage}
+\section{snapd}
+\section{flatpak}
+\section{nix}
+
+\section{Love to Hate Them}
+
+\begin{frame}{Proprietary enterprise apps are coming to Linux}
+    % TODO
+    \begin{itemize}
+        \item Canonical snap sprint
+    \end{itemize}
+    Currently, when enterprises want to target a platform, they see this:
+    \begin{enumerate}[leftmargini=*]
+        \item[macOS] \texttt{.dmg}
+        \item[Windows] \texttt{.exe}
+        \item[Android] \texttt{.apk}
+        \item[Linux] \texttt{.deb}, \texttt{.rpm}, \texttt{PKGBUILD}, \dots
+    \end{enumerate}
+\end{frame}
+
+% TODO
+\begin{frame}[standout]
+    \Huge
+    Live Demo
 \end{frame}
 
 \begin{frame}[standout]
@@ -44,7 +94,7 @@
     Questions?
 \end{frame}
 
-\begin{frame}{References}
+\begin{frame}{Resources}
     \begin{itemize}
         \item \url{https://}
     \end{itemize}
