@@ -6,6 +6,10 @@ Use the GitHub Desktop client as an example:
     ./GitHubDesktop-linux-x86_64-1.0.13.AppImage
 
 # Snapd
+https://snapcraft.io/inkscape/
+
+    sudo snap install inkscape
+    snap run inkscape
 
 # Flatpak
 https://fedoramagazine.org/getting-started-flatpak/
