@@ -252,7 +252,7 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Snadboxing}
+\begin{frame}{Sandboxing}
     \begin{itemize}
         \item All processes run as the user with no capabilities
         \item All processes run in a transient systemd user scope with the name \texttt{flatpak-\$appid-\$pid}
@@ -285,6 +285,11 @@
         \item Install the runtime and corresponding SDK
         \item\texttt{\$\ flatpak install flathub org.freedesktop.Platform//1.6 org.freedesktop.Sdk//1.6}
     \end{itemize}
+\end{frame}
+
+\begin{frame}{Manifest}
+    \center
+    \includegraphics[width=0.9\textwidth]{./graphics/flatpak_json.png}
 \end{frame}
 
 
