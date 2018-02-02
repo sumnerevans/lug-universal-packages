@@ -250,11 +250,19 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Snadboxing}
+\begin{frame}{Sandboxing}
     \begin{itemize}
         \item All processes run as the user with no capabilities
         \item All processes run in a transient systemd user scope with the name \texttt{flatpak-\$appid-\$pid}
         \item \texttt{/} is a private tmpfs not visible anywhere else. This is \texttt{pivot\_root:ed} into so it is the new  and all other mounts from the host are unmounted from the namespace.
+        \item Enviroment variables set:
+        \begin{itemize}
+            \item {PATH=/app/bin:/usr/bin}
+            \item {LD\_LIBRARY\_PATH=/app/lib}
+            \item {XDG\_CONFIG\_DIRS=/app/etc/xdg:/etc/xdg}
+            \item {XDG\_DATA\_DIRS=/app/share:/usr/share}
+            \item {XDG\_RUNTIME\_DIR=/run/user/\$pid}
+        \end{itemize}    
     \end{itemize}
 \end{frame}
 
@@ -274,6 +282,18 @@
         \item\texttt{\$\ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo}
         \item Install the runtime and corresponding SDK
         \item\texttt{\$\ flatpak install flathub org.freedesktop.Platform//1.6 org.freedesktop.Sdk//1.6}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Manifest}
+    \center
+    \includegraphics[width=0.9\textwidth]{./graphics/flatpak_json.png}
+\end{frame}
+
+\begin{frame}{Packagin}
+    \begin{itemize}
+        \item \texttt{\$\ flatpak-builder app-dir org.flatpak.Hello.json}
+        \item \texttt{\$\ flatpak-builder --run app-dir org.flatpak.Hello.json hello.sh}
     \end{itemize}
 \end{frame}
 
