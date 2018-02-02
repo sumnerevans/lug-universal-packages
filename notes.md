@@ -16,6 +16,6 @@ https://fedoramagazine.org/getting-started-flatpak/
 > The GNOME development team hosts a repository containing nightly builds of all
 > the core GNOME apps, as well as many additional applications.
 
-# Nix
-
-
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    flatpak install flathub org.armagetronad.ArmagetronAdvanced
+    flatpak run org.armagetronad.ArmagetronAdvanced
