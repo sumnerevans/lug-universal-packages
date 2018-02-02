@@ -257,6 +257,14 @@
         \item All processes run as the user with no capabilities
         \item All processes run in a transient systemd user scope with the name \texttt{flatpak-\$appid-\$pid}
         \item \texttt{/} is a private tmpfs not visible anywhere else. This is \texttt{pivot\_root:ed} into so it is the new  and all other mounts from the host are unmounted from the namespace.
+        \item Enviroment variables set:
+        \begin{itemize}
+            \item {PATH=/app/bin:/usr/bin}
+            \item {LD\_LIBRARY\_PATH=/app/lib}
+            \item {XDG\_CONFIG\_DIRS=/app/etc/xdg:/etc/xdg}
+            \item {XDG\_DATA\_DIRS=/app/share:/usr/share}
+            \item {XDG\_RUNTIME\_DIR=/run/user/\$pid}
+        \end{itemize}    
     \end{itemize}
 \end{frame}
 
