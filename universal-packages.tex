@@ -290,9 +290,13 @@
     \includegraphics[width=0.9\textwidth]{./graphics/flatpak_json.png}
 \end{frame}
 
-\begin{frame}{Packagin}
+\begin{frame}{Packaging}
     \begin{itemize}
+        \item Package application
         \item \texttt{\$\ flatpak-builder app-dir org.flatpak.Hello.json}
+        \item Test application
+        \item \texttt{\$\ flatpak-builder --run app-dir org.flatpak.Hello.json hello.sh}
+        \item Upload to repositoryS
         \item \texttt{\$\ flatpak-builder --run app-dir org.flatpak.Hello.json hello.sh}
     \end{itemize}
 \end{frame}
