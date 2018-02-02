@@ -235,7 +235,7 @@
                 \item PyGObject
                 \item Vala
                 \item GVFS
-                \item other stuff to make Gnome work...
+                \item other stuff to make Gnome work\dots
             \end{itemize}
     \end{itemize}
 \end{frame}
@@ -253,8 +253,11 @@
 \begin{frame}{Sandboxing}
     \begin{itemize}
         \item All processes run as the user with no capabilities
-        \item All processes run in a transient systemd user scope with the name \texttt{flatpak-\$appid-\$pid}
-        \item \texttt{/} is a private tmpfs not visible anywhere else. This is \texttt{pivot\_root:ed} into so it is the new  and all other mounts from the host are unmounted from the namespace.
+        \item All processes run in a transient \texttt{systemd} user scope with
+            the name \texttt{flatpak-\$appid-\$pid}
+        \item \texttt{/} is a private tmpfs not visible anywhere else. This is
+            \texttt{pivot\_root:ed} into so it is the new  and all other mounts
+            from the host are unmounted from the namespace.
         \item Enviroment variables set:
         \begin{itemize}
             \item {PATH=/app/bin:/usr/bin}
@@ -262,7 +265,7 @@
             \item {XDG\_CONFIG\_DIRS=/app/etc/xdg:/etc/xdg}
             \item {XDG\_DATA\_DIRS=/app/share:/usr/share}
             \item {XDG\_RUNTIME\_DIR=/run/user/\$pid}
-        \end{itemize}    
+        \end{itemize}
     \end{itemize}
 \end{frame}
 
@@ -278,7 +281,7 @@
 
 \begin{frame}{Runtimes}
     \begin{itemize}
-        \item Add the respository hosting your runtime 
+        \item Add the respository hosting your runtime
         \item\texttt{\$\ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo}
         \item Install the runtime and corresponding SDK
         \item\texttt{\$\ flatpak install flathub org.freedesktop.Platform//1.6 org.freedesktop.Sdk//1.6}
@@ -301,8 +304,6 @@
     \end{itemize}
 \end{frame}
 
-\section{nix}
-
 \section{Comparison}
 \begin{frame}{Advantages of each of these universal package formats}
     \begin{itemize}
@@ -310,8 +311,8 @@
         \item Snaps are good for deploying single applications.
         \item Flatpak is good for distributing a set of applications. For
             example Gnome development builds are in a Flatpak repository.
-        \item Nix is a cool functional package manager. 
-        Everytime you build the same version of the same package you should get the same output
+        \item Nix is a cool functional package manager.  Everytime you build the
+            same version of the same package you should get the same output
     \end{itemize}
 \end{frame}
 
@@ -342,16 +343,21 @@
         \item More application availability.
         \item More abstraction! No more dealing with a bunch of different
             packaging formats.
-        \item Easier troubleshooting: Developers can be certain (ideally) that users are using the same software configuration
+        \item Easier troubleshooting: Developers can be certain (ideally) that
+            users are using the same software configuration
     \end{itemize}
+\end{frame}
 
+\begin{frame}{Pros and cons}
     \textbf{Cons}
     \begin{itemize}
         \item The applications are going to be crap. Bloated, Electron,
             enterprise crap.
         \item More abstraction! Not much improvement on ease of deployment in
             comparison to deploying to \texttt{.deb}.
-        \item Library version management is somewhat delegated to the application developers, Windows style. Heartbleed anybody. This hopefully can be somewhat alleviated by runtimes
+        \item Library version management is somewhat delegated to the
+            application developers, Windows style. Heartbleed anybody. This
+            hopefully can be somewhat alleviated by runtimes.
     \end{itemize}
 \end{frame}
 
